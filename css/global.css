@@ -1,0 +1,330 @@
+ul,
+li,
+div,
+p,
+a,
+span,
+i,
+input,
+img {
+    /* 怪异盒子模型 */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: sans-serif;
+    /*文字类型*/
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font: 14px/1.5 Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+    color: #333;
+    min-width: 1226px;
+    /* background: #fff; */
+    overflow-x: hidden;
+}
+
+/* 清除浮动 */
+/* .clearfix:after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: "";
+    height: 0;
+}
+/* 版心 *
+.container {
+    width: 1226px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container:after {
+    clear: both;
+}
+
+.container:after,
+.container:before {
+    content: " ";
+    display: table;
+} */
+
+/* 版心 */
+.container-self {
+    width: 1226px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.clearFix:after {
+    content: "";
+    display: table;
+}
+
+
+html,
+body,
+ul,
+p {
+    margin: 0;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    display: block;
+    text-decoration: none !important;
+    transition: all .1s ease-in;
+}
+
+em {
+    font-style: normal;
+}
+
+/* 去掉图片与盒子下面的空隙，可以用display:block,注意场合*/
+img {
+    vertical-align: top;
+    border: 0;
+}
+
+/* 表单有外轮廓 */
+input {
+    outline: none;
+    border: 0;
+}
+
+i {
+    font-style: normal;
+}
+
+
+
+
+/* 侧边栏 */
+.mini {
+    width: 27px;
+    height: 234px;
+    /* background-color: #fff; */
+    position: fixed;
+    bottom: 40px;
+    right: 0;
+    left: auto;
+    margin-left: 0;
+    z-index: 99;
+}
+
+.mini .item {
+    display: block;
+    width: 25px;
+    height: 40px;
+    margin-top: -1px;
+    background-color: #fff;
+    border: 1px solid #f5f5f5;
+    text-align: center;
+    position: relative;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    margin: 10px auto 8px;
+}
+
+.icon .static {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: opacity .3s;
+    z-index: 1;
+}
+
+.mini .item:hover .static {
+    opacity: 0;
+}
+
+.item .icon .hover {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* 文字 手机APP */
+.item .text {
+    display: none;
+    height: 28px;
+    line-height: 28px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    padding: 0 8px;
+    background-color: #fff;
+    border: 1px solid #f5f5f5;
+    text-align: center;
+    /* 多余文字隐藏 */
+    white-space: nowrap;
+    color: #757575;
+    transition: color .3s;
+}
+
+/* 二维码 */
+.pop-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 14px;
+    background-color: #fff;
+    border: 1px solid #f5f5f5;
+    transition: opacity 0.3s;
+    transform: translateZ(0);
+    opacity: 0;
+    /* 可见度 ：hidden即元素隐藏 */
+    visibility: hidden;
+}
+
+.pop-content img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 6px auto;
+}
+
+.pop-content .desc {
+    display: block;
+    width: 82px;
+    margin: 14px auto 0;
+    color: #757575;
+    text-align: center;
+}
+
+/* 灰色 右箭头 */
+.pop-content::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: -13px;
+    border-width: 6px;
+    width: 0;
+    height: 0;
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #f5f5f5;
+    border-style: solid;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* 白色 右箭头 */
+.pop-content::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: -12px;
+    border-width: 6px;
+    width: 0;
+    height: 0;
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #fff;
+    border-style: solid;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* 移动a 标签上   二维码显示 */
+.item:hover .pop-content {
+    left: -140px;
+    opacity: 1;
+    /* 可见度 ：visible即元素可见 */
+    visibility: visible;
+}
+
+/* 个人中心 */
+.item .text2 {
+    position: absolute;
+    right: -60px;
+    top: 5px;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #f5f5f5;
+    text-align: center;
+    white-space: nowrap;
+    opacity: 0;
+    background-color: #fff;
+    color: #757575;
+    transition: color .3s;
+    visibility: hidden;
+}
+
+.item .text2::before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 10px;
+    right: -12px;
+    border-width: 6px;
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #f5f5f5;
+    border-style: solid;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    overflow: hidden;
+}
+
+.item .text2::after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 10px;
+    right: -12px;
+    border-width: 6px;
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #fff;
+    border-style: solid;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.item:hover .text2 {
+    left: -80px;
+    opacity: 1;
+    /* 可见度 ：visible即元素可见 */
+    visibility: visible;
+}
+
+/* 回到顶部 */
+.mini .item-top {
+    margin-top: 15px;
+    border-top: 1px solid #f5f5f5;
+    opacity: 0;
+}
+
+/* .mini .item .item-top:active {
+    top: 0;
+} */
